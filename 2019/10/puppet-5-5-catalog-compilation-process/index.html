@@ -5,13 +5,16 @@
   
 
   
-  <title>Puppet</title>
+  <title>puppet 5.5 | catalog compilation process | Puppet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Puppet">
-<meta property="og:url" content="http:&#x2F;&#x2F;faintdream.io&#x2F;index.html">
+  <meta name="description" content="In this post we are going to learn a lot of things about puppet catalog, catalog compilation and how it is utilized by puppet master , It is a great know how for anyone interested in puppet and also a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="puppet 5.5 | catalog compilation process">
+<meta property="og:url" content="http:&#x2F;&#x2F;faintdream.io&#x2F;2019&#x2F;10&#x2F;puppet-5-5-catalog-compilation-process&#x2F;index.html">
 <meta property="og:site_name" content="Puppet">
+<meta property="og:description" content="In this post we are going to learn a lot of things about puppet catalog, catalog compilation and how it is utilized by puppet master , It is a great know how for anyone interested in puppet and also a">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-23T16:53:11.600Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Puppet" type="application/atom+xml">
@@ -63,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-puppet-5-5-catalog-compilation-process" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-puppet-5-5-catalog-compilation-process" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/puppet-5-5-catalog-compilation-process/" class="article-date">
   <time datetime="2019-10-23T11:48:21.000Z" itemprop="datePublished">2019-10-23</time>
@@ -78,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/puppet-5-5-catalog-compilation-process/">puppet 5.5 | catalog compilation process</a>
+    <h1 class="article-title" itemprop="name">
+      puppet 5.5 | catalog compilation process
     </h1>
   
 
@@ -171,150 +172,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Automating-puppet-development-environment-setup-using-Vagrant-Virtualbox" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/Automating-puppet-development-environment-setup-using-Vagrant-Virtualbox/" class="article-date">
-  <time datetime="2019-10-19T14:48:21.000Z" itemprop="datePublished">2019-10-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/Automating-puppet-development-environment-setup-using-Vagrant-Virtualbox/">puppet 5.5 | Setup puppet development environment virtualbox &amp; Vagrant</a>
-    </h1>
+    <a href="/2019/10/Automating-puppet-development-environment-setup-using-Vagrant-Virtualbox/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">puppet 5.5 | Setup puppet development environment virtualbox &amp; Vagrant</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>I frequently write puppet modules so i always have to have a working puppet test environment with multiple nodes. while the instructions for setting up puppet server and agent are no way difficult but  require some amount of manual work, which is not much fun and overtime virtual machines running on laptop go unstable due to no. of reasons, including me trying crazy things :-) . So everytime i start a new project it consumes an hour or so before i can even start being productive, this lead me to write  <strong><em>Vagrantfile</em></strong> file to automate the process.</p>
-<p>Using the <strong><em>Vagrantfile</em></strong> we can quickly spin up three VMs [ a puppet master &amp; two nodes running puppet agent ] with a simple command, it still takes fewer minutes but far less compared to previous lead time.</p>
-<p>Advantages include,</p>
-<ol>
-<li>Fast vm provisioning</li>
-<li>Repeatable process</li>
-<li>Accuracy </li>
-</ol>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Win/Mac/Linux ( any flavour) </p>
-<p>Install following packages </p>
-<ol>
-<li><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">Virtual box</a></li>
-<li><a href="https://www.vagrantup.com/" target="_blank" rel="noopener">Vagrant</a></li>
-<li><a href="someurl">Git</a></li>
-</ol>
-<ul>
-<li>Launch CMD/Terminal/Console on your system and run <code>vagrant init</code>, if this works we are good to proceed to next step.</li>
-</ul>
-<p><img src="/images/vagrant_init,png.png" alt=""></p>
-<ul>
-<li>Let’s begin setting up puppet test environment,<ol>
-<li><code>git clone https://github.com/faintdream/puppet55.git</code> </li>
-<li><code>cd puppe55</code></li>
-<li><code>vagrant up</code></li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/vagrant_up1.png" alt=""></p>
-<p><img src="/images/vagrant_up2.png" alt=""></p>
-<p><img src="/images/vagrant_up3.png" alt=""></p>
-<p><img src="/images/vagrant_up4.png" alt=""></p>
-<p><img src="/images/vagrant_up5.png" alt=""></p>
-<p><img src="/images/vagrant_up6.png" alt=""></p>
-<p><img src="/images/vagrant_status.png" alt=""></p>
-<p>The new puppet test environment is up , but <code>puppet agent</code> running on the VMs are still not configured to talk to <code>puppet master/puppetserver</code></p>
-<ul>
-<li>Establish HTTPS connectivity between all servers running <code>puppet agent</code> to server running <code>puppet master/puppetserver</code> </li>
-</ul>
-<p>Commands to run on each server running <code>puppet agent</code></p>
-<ol>
-<li><p><code>vagrant ssh &lt;vm name&gt;</code></p>
-</li>
-<li><p><code>sudo su</code></p>
-</li>
-<li><p><code>puppet agent -t</code></p>
-<p>This will generate a client side ssl and will be used by <code>puppetserver</code> to authenticate the vm as a valid node.</p>
-<p><img src="/images/ubuntu_cert_request.png" alt=""></p>
-<p><img src="/images/node_cert_request.png" alt=""></p>
-</li>
-</ol>
-<p>Commands to run on server running <code>puppet master/puppetserver</code></p>
-<ol>
-<li><p><code>puppet cert sign --all</code></p>
-<p>this will sign all pending certificate requests, that means all nodes can talk to <code>puppetserver</code> </p>
-<p><img src="/images/puppet_cert_sign.png" alt=""></p>
-</li>
-</ol>
-<p>A working puppet test environment is now ready  !</p>
-<h6 id="Bonus-points-if-you-get-around-this"><a href="#Bonus-points-if-you-get-around-this" class="headerlink" title="Bonus points if you get around this"></a>Bonus points if you get around this</h6><p>To apply an exisitng <code>apache</code> module on <code>node</code> run  <code>puppet agent -t</code>  as <code>root</code>, this should install <code>apache</code>  on the server.</p>
-<ol>
-<li><code>vagrant ssh node</code></li>
-<li><code>sudo su</code></li>
-<li><code>puppet agent -t</code></li>
-</ol>
-<p>Note: during bootstrap we downloaded several sample modules i created for demo purpose via <code>r10k</code> on <code>puppetserver</code> , if you are curious how the modules got deployed on <code>puppetserver</code> please look through <code>Vagrantfile</code> as well as <code>Puppetfile</code> under  <a href="https://github.com/faintdream/r10k-site" target="_blank" rel="noopener">r10k-site</a>.</p>
-<p>Vagrant command reference:</p>
-<table>
-<thead>
-<tr>
-<th>Commands</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vagrant up</td>
-<td>Creates new VMs as well as launches existing VMs</td>
-</tr>
-<tr>
-<td>vagrant ssh  <strong><vm name></strong></td>
-<td>Lets you ssh to newly built VM, no password required and user can <code>sudo su</code></td>
-</tr>
-<tr>
-<td>vagrant halt</td>
-<td>Shutdown existing VMs</td>
-</tr>
-<tr>
-<td>vagrant provision</td>
-<td>runs post install steps/script mentioned in <em>Vagrantfile</em></td>
-</tr>
-<tr>
-<td>vagrant destroy</td>
-<td>Deletes virtual machines and any disks associated with them</td>
-</tr>
-<tr>
-<td>vagrant status</td>
-<td>shows the status of VMs built via <em>Vagrantfile</em> in current directory</td>
-</tr>
-</tbody></table>
-<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><ul>
-<li><p>if you get below certificate error, it means that certificate is not working, we need to delete it as instructed in error output from the server running <code>puppet agent</code> as well as from the <code>puppet master/puppetserver</code></p>
-<p><img src="/images/error1.png" alt=""></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://faintdream.io/2019/10/Automating-puppet-development-environment-setup-using-Vagrant-Virtualbox/" data-id="ck23isr0f00003gr7e60pf4u6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
